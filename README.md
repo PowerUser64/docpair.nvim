@@ -47,7 +47,7 @@ Those belong next to the code — not **inside** it. `docpair.nvim` gives you th
 return {
   "isticusi/docpair.nvim",
   main = "docpair",
-  lazy = false,                -- eager so :Documented has filename completion immediately
+  lazy = false,                -- eager so :Docpair has filename completion immediately
   opts = { info_filetype = "markdown" },
   config = true,               -- calls require("docpair").setup(opts)
 }
@@ -62,7 +62,7 @@ return {
 ### Command
 
 ```
-:Documented [file] [infofile][!]
+:Docpair [file] [infofile][!]
 ```
 
 - Opens `[file]` on the **left** and its notes on the **right**.
@@ -75,9 +75,9 @@ return {
 ### Examples
 
 ```vim
-:Documented src/main.c
-:Documented src/main.c main_notes.md
-:Documented! README.md
+:Docpair src/main.c
+:Docpair src/main.c main_notes.md
+:Docpair! README.md
 ```
 
 ---
@@ -112,7 +112,7 @@ require("docpair").setup({
 
 - Both windows start at the **top** (`normal! gg`) with wrapping, soft line breaks, folds, and concealment **disabled** in the notes window to keep alignment stable.
 - Synchronization uses Neovim’s native `scrollbind` and `cursorbind`.
-- If the source grows **after** you ran `:Documented`, simply run the command again to pad the notes file to the new length.
+- If the source grows **after** you ran `:Docpair`, simply run the command again to pad the notes file to the new length.
 
 ---
 
@@ -146,7 +146,7 @@ If Neovim doesn’t find the page yet, generate helptags once:
 ## Limitations
 
 - Line‑synchronous only (by design). There’s no structural/semantic mapping.
-- Notes are padded at command time. Re‑run `:Documented` to extend padding after the source grows.
+- Notes are padded at command time. Re‑run `:Docpair` to extend padding after the source grows.
 
 ---
 

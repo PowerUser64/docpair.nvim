@@ -37,7 +37,7 @@ With lazy.nvim (local path example):
   return {
     dir = vim.fn.stdpath("config") .. "/scripts/docpair",
     main = "docpair",
-    lazy = false,  -- eager so :Documented has file completion immediately
+    lazy = false,  -- eager so :Docpair has file completion immediately
     opts = { info_filetype = "markdown" },
     config = true,
   }
@@ -58,7 +58,7 @@ Lua:
 -------------------------------------------------------------------------------
 COMMAND *docpair-command*
 
-*:Documented* [file] [infofile][!]
+*:Docpair* [file] [infofile][!]
     Open [file] on the left and its notes on the right.
     Without arguments, open notes for the active buffer
 
@@ -96,15 +96,15 @@ USAGE & EXAMPLES *docpair-usage*
 
 Basic:
 >
-  :Documented src/main.c
+  :Docpair src/main.c
 <
 Custom notes filename (still placed in .documented/):
 >
-  :Documented src/main.c main_notes.md
+  :Docpair src/main.c main_notes.md
 <
 Stay in the current tab:
 >
-  :Documented! README.md
+  :Docpair! README.md
 <
 Suggested workflows:
   - API learning: annotate each line/step while trying calls and options.
@@ -117,7 +117,7 @@ NOTES & LIMITATIONS *docpair-notes*
 
 - Intentional minimalism: only line-level synchronization (scrollbind/cursorbind).
   No structural mapping, symbols, or live parsing.
-- Padding happens when you run :Documented. If the source grows later, re-run
+- Padding happens when you run :Docpair. If the source grows later, re-run
   the command to extend the notes file’s line count.
 - Wrapping and folds are disabled in the notes window to keep alignment stable.
 - Notes are regular files under .documented/ — easy to version-control.
@@ -132,7 +132,7 @@ If this help file isn’t found by :help yet, generate helptags for your doc dir
 Then:
 >
   :help docpair
-  :help :Documented
+  :help :Docpair
 <
 
 vim:tw=78:ts=8:ft=help:norl:

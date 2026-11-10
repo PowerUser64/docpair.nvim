@@ -24,14 +24,14 @@ local function abs(path)
 end
 
 local function create_command()
-	if vim.fn.exists(":Documented") == 2 then
-		pcall(vim.api.nvim_del_user_command, "Documented")
+	if vim.fn.exists(":Docpair") == 2 then
+		pcall(vim.api.nvim_del_user_command, "Docpair")
 	end
 
-	vim.api.nvim_create_user_command("Documented", function(opts)
+	vim.api.nvim_create_user_command("Docpair", function(opts)
 		local args = opts.fargs
 		if #args > 2 then
-			vim.api.nvim_echo({ { "Usage: :Documented [file] [infofile]", "ErrorMsg" } }, true, {})
+			vim.api.nvim_echo({ { "Usage: :Docpair [file] [infofile]", "ErrorMsg" } }, true, {})
 			return
 		end
 
